@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/InstaUpload/common/api";
+
+package api;
+
+service UserService {
+	rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+}
+
+message CreateUserRequest {
+	string name = 1;
+	string email = 2;
+	string password = 3;
+}
+
+message CreateUserResponse {
+	string msg = 1;
+}
