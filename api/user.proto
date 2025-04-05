@@ -6,6 +6,8 @@ package api;
 
 service UserService {
 	rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+	rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
+	rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
 }
 
 message CreateUserRequest {
@@ -16,4 +18,26 @@ message CreateUserRequest {
 
 message CreateUserResponse {
 	string msg = 1;
+}
+
+message LoginUserRequest {
+	string email = 1;
+	string password = 2;
+}
+
+message LoginUserResponse {
+	string token = 1;
+}
+
+message AuthUserRequest {
+	string token = 1;
+}
+
+message AuthUserResponse {
+	int64 id = 1;
+	string name = 2;
+	string email = 3;
+	string password = 4;
+	bool is_verified = 5;
+	string created_on = 6;
 }
