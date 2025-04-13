@@ -8,6 +8,9 @@ service UserService {
 	rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
 	rpc LoginUser(LoginUserRequest) returns (LoginUserResponse);
 	rpc AuthUser(AuthUserRequest) returns (AuthUserResponse);
+	rpc UpdateUserRole(UpdateUserRoleRequest) returns (UpdateUserRoleResponse);
+	rpc ResetUserPassword(ResetUserPasswordRequest) returns (ResetUserPasswordResponse);
+	rpc UpdateUserPassword(UpdateUserPasswordRequest) returns (UpdateUserPasswordResponse);
 }
 
 message CreateUserRequest {
@@ -37,7 +40,32 @@ message AuthUserResponse {
 	int64 id = 1;
 	string name = 2;
 	string email = 3;
-	string password = 4;
-	bool is_verified = 5;
-	string created_on = 6;
+	bool is_verified = 4;
+	string created_on = 5;
+}
+
+message UpdateUserRoleRequest {
+	int64 userId = 1;
+	string role_name = 2;
+}
+
+message UpdateUserRoleResponse {
+	string msg = 1;
+}
+
+message ResetUserPasswordRequest {
+	string email = 1;
+}
+
+message ResetUserPasswordResponse {
+	string msg = 1;
+}
+
+message UpdateUserPasswordRequest {
+	string token = 1;
+	string password = 2;
+}
+
+message UpdateUserPasswordResponse {
+	string msg = 1;
 }

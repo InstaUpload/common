@@ -7,3 +7,5 @@ This is the common module for InstaUpload upload mainly this module contain all 
     -   Add function to get value from env, if not present then return the fallback.
 - ### Add make file.
     - Add make file with command used to genrated `.go` code file from `.proto` file.
+- ### User service.
+    - Add Update Role service for which will take in role in string.
